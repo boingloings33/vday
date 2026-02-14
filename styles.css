@@ -19,6 +19,10 @@ button {
     cursor: pointer;
   }
 
+  .btns {
+    display: flex;
+  }
+
   a {
     text-decoration: none;
   }
@@ -59,5 +63,119 @@ button {
   .no-highlight {
     user-select: none;
     -moz-user-select: none;
+  }
+  .hearts {
+    position: fixed;
+    width: 100%;
+    height: 120%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff6b9d;
+    transform: rotate(45deg);
+    animation:
+      floatUp linear infinite,
+      pulse 2s ease-in-out infinite;
+    opacity: 0.6;
+  }
+
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff6b9d;
+    border-radius: 50%;
+  }
+
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+
+  .heart::after {
+    left: -10px;
+    top: 0;
+  }
+
+  /* Floating Animation */
+  @keyframes floatUp {
+    from {
+      transform: translateY(100vh) rotate(45deg);
+    }
+    to {
+      transform: translateY(-10vh) rotate(45deg);
+    }
+  }
+
+  /* Subtle Pulse */
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 0.5;
+      scale: 1;
+    }
+    50% {
+      opacity: 0.8;
+      scale: 1.2;
+    }
+  }
+
+  /* Randomized positions */
+  .heart:nth-child(1) {
+    left: 5%;
+    animation-duration: 10s;
+    animation-delay: 0s;
+  }
+  .heart:nth-child(2) {
+    left: 15%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+  }
+  .heart:nth-child(3) {
+    left: 25%;
+    animation-duration: 9s;
+    animation-delay: 4s;
+  }
+  .heart:nth-child(4) {
+    left: 35%;
+    animation-duration: 11s;
+    animation-delay: 1s;
+  }
+  .heart:nth-child(5) {
+    left: 45%;
+    animation-duration: 13s;
+    animation-delay: 3s;
+  }
+  .heart:nth-child(6) {
+    left: 55%;
+    animation-duration: 10s;
+    animation-delay: 5s;
+  }
+  .heart:nth-child(7) {
+    left: 65%;
+    animation-duration: 14s;
+    animation-delay: 2s;
+  }
+  .heart:nth-child(8) {
+    left: 75%;
+    animation-duration: 8s;
+    animation-delay: 6s;
+  }
+  .heart:nth-child(9) {
+    left: 85%;
+    animation-duration: 12s;
+    animation-delay: 4s;
+  }
+  .heart:nth-child(10) {
+    left: 95%;
+    animation-duration: 9s;
+    animation-delay: 1s;
   }
 }
